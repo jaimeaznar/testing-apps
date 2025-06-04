@@ -1,0 +1,85 @@
+name: Detect changes
+on:
+  workflow_dispatch:
+  workflow_call:
+    inputs:
+      BRANCH_NAME:
+        required: true
+        type: string
+  schedule:
+    - cron: '0 8,11,16 * * 1-5'
+
+env:
+  NODE_AUTH_TOKEN: ${{secrets.ARTIFACTORY_REGISTRY_PASSWORD}}
+  REGISTRY_URL: https://sanofi.jfrog.io/sanofi/api/npm/npm-iadc-local/auth/sanofi
+  SCOPE: "@sanofi"
+  REQUESTS_CA_BUNDLE: /etc/ssl/certs/ca-certificates.crt
+  NODE_EXTRA_CA_CERTS: /etc/ssl/certs/ca-certificates.crt
+
+jobs:
+  detect_changes:
+    runs-on: ['atmos-aws-arc-runner-set']
+    env:
+      GITHUB_OWNER: sanofi-iadc
+      GITHUB_REPO: konviw
+      BRANCH_NAME: ${{inputs.BRANCH_NAME}}
+    container:
+      image: ${{ vars.CONTAINER_INNERSOURCE_REGISTRY }}/debian:bookworm
+      credentials:
+        username: ${{secrets.CONTAINER_PRIVATE_REGISTRY_USERNAME}}
+        password: ${{secrets.CONTAINER_PRIVATE_REGISTRY_TOKEN}}
+    steps:
+      - name: unset squid proxy
+        run: |
+          echo "http_proxy=" >> "$GITHUB_ENV"
+          echo "https_proxy=" >> "$GITHUB_ENV"
+          echo "no_proxy=" >> "$GITHUB_ENV"
+          echo "HTTP_PROXY=" >> "$GITHUB_ENV"
+          echo "HTTPS_PROXY=" >> "$GITHUB_ENV"
+          echo "NO_PROXY=" >> "$GITHUB_ENV"
+      - name: Install Dependencies
+        run: apt update && apt install -y git curl jq unzip
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v2
+        with:
+          application_id: 286113
+          application_private_key: ${{ secrets.SANOFI_GITHUB_BOT_PRIVATE_KEY }}
+      - uses: actions/checkout@v4
+        with:
+          path: ${{ github.repository }}
+          token: "${{ steps.get_workflow_token.outputs.token }}"
+      - name: node_setup
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ vars.NODE_VERSION }}
+          registry-url: ${{env.REGISTRY_URL}}
+          scope: ${{env.SCOPE}}
+          always-auth: "true"
+      - name: before_script
+        run: |
+          cd ${{ github.repository }}
+          curl -u "${{secrets.ARTIFACTORY_REGISTRY_USERNAME}}:${{secrets.ARTIFACTORY_REGISTRY_PASSWORD}}" "${{secrets.ARTIFACTORY_NPM_REGISTRY_AUTHURL}}" > /__w/_temp/.npmrc
+          npm install -g @sanofi/release-manager@1
+      - name: script
+        env:
+          GITHUB_TOKEN: ${{ steps.get_workflow_token.outputs.token }}
+          SRM_REMOTE_URL: https://x-access-token:${{ steps.get_workflow_token.outputs.token }}@github.com/Sanofi-GitHub/factory4_iadc-portal_iadc-portal-environments.git
+          SRM_ENV: master
+          COMPONENT_NAME: konviw
+        run: |
+          cd ${{ github.repository }}
+          source github_functions.sh
+          source semver_functions.sh
+          export current_version=$(srm component get-version --remote-repository ${SRM_REMOTE_URL} --remote-environment ${SRM_ENV} ${COMPONENT_NAME})
+          export github_latest_release_tag_name=$(print_github_latest_release_tag_name ${GITHUB_OWNER} ${GITHUB_REPO})
+          export github_latest_release_version=$(guess_version_from_tag_name ${github_latest_release_tag_name})
+          echo "Current version = ${current_version}"
+          echo "Github latest version = ${github_latest_release_version}"
+          if semver_lt "${current_version}" "${github_latest_release_version}"; then
+            echo "There is a new version on Github, let's trigger a release pipeline for ${github_latest_release_tag_name}!"
+            curl -X POST -H "Accept: application/vnd.github+json" -H "Authorization: token $GITHUB_TOKEN" $GITHUB_API_URL/repos/$GITHUB_REPOSITORY_OWNER/factory4_iadc-portal_konviw-mirror/actions/workflows/main.yml/dispatches -d '{"ref":"master","inputs":{"ACTION": "'release'","RELEASE_TAG_NAME": "'${github_latest_release_tag_name}'"}}'
+          else
+            echo "Our version is up to date. We do nothing."
+          fi
+        shell: bash

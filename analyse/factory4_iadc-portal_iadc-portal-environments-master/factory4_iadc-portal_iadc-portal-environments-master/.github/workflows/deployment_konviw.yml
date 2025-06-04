@@ -1,0 +1,40 @@
+name: Konviw Deployment
+on:
+  push:
+    paths:
+      - '**konviw.json'
+      - '**release.json'
+    branches:
+      - 'master'
+      - 'env/production'
+jobs:
+  define_env_variable:
+    runs-on: ['atmos-aws-arc-runner-set']
+    name: environment variable
+    outputs:
+      ENV: ${{ steps.ENV.outputs.ENV }}
+    steps:
+      - name: Sets workflow variable for production
+        run: |
+          echo "ENV=production" >> $GITHUB_ENV
+        if: github.ref_name == 'env/production'
+
+      - name: Sets  workflow variable for integration
+        run: |
+          echo "ENV=integration" >> $GITHUB_ENV
+        if: github.ref_name == 'master'
+
+      - id: Env
+        run: echo "ENV=$ENV" >> $GITHUB_OUTPUT
+  Deployment:
+    name: (${{needs.define_env_variable.outputs.ENV}}) Deploy konviw
+    needs: [define_env_variable]
+    uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/workflows/environment_deploy.yml@main
+    with:
+      env: ${{needs.define_env_variable.outputs.ENV}}
+      component_name: backend
+      infrastructure_repo: ${{ vars.INFRASTRUCTURE_REPO }}
+      workflow_file_name: deploy.yml
+      branch: master
+      payload: '{ \"ENV\" : \"${{needs.define_env_variable.outputs.ENV}}\",  \"component_name\" : \"konviw\", \"component_image\" : \"foundation/konviw\", \"ecs_service\" : \"iadc-portal-${{needs.define_env_variable.outputs.ENV}}-confluence-pv\" }'
+    secrets: inherit 

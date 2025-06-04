@@ -1,0 +1,54 @@
+name: E2E Tests Confluence PV
+on:
+  push:
+    paths:
+      - '**confluence-pv.json'
+    branches:
+      - 'master'
+      - 'env/production'
+jobs:
+  define_env_variable:
+    runs-on: ['atmos-aws-arc-runner-set']
+    name: environment variable
+    outputs:
+      ENV: ${{ steps.ENV.outputs.ENV }}
+    steps:
+      - name: Sets workflow variable for production
+        run: |
+          echo "ENV=production" >> $GITHUB_ENV
+        if: github.ref_name == 'env/production'
+
+      - name: Sets  workflow variable for integration
+        run: |
+          echo "ENV=integration" >> $GITHUB_ENV
+        if: github.ref_name == 'master'
+
+      - id: Env
+        run: echo "ENV=$ENV" >> $GITHUB_OUTPUT
+
+  E2E_Tests_Confluence:
+    name: (${{needs.define_env_variable.outputs.ENV}}) E2E Test Confluence Pv
+    runs-on: ['atmos-aws-arc-runner-set']
+    needs: [define_env_variable]
+    env:
+      ENV: ${{needs.define_env_variable.outputs.ENV}}
+    steps:
+      - name: print environment name
+        run: echo "$ENV"
+      - name: Get Token
+        id: get_workflow_token
+        uses: peter-murray/workflow-application-token-action@v2
+        with:
+          application_id: 286113
+          application_private_key: ${{ secrets.SANOFI_GITHUB_BOT_PRIVATE_KEY }}
+      - uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/actions/trigger-and-wait@v1-debian
+        with:
+          owner: Sanofi-GitHub
+          repo: factory4_iadc-portal_confluence-public-viewer-e2e-tests
+          github_token: ${{ steps.get_workflow_token.outputs.token }}
+          workflow_file_name: e2e_test.yml
+          ref: 'master'
+          wait_interval: 10
+          propagate_failure: true
+          trigger_workflow: true
+          wait_workflow: true

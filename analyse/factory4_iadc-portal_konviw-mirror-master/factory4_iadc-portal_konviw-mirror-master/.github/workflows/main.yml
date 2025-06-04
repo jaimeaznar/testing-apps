@@ -1,0 +1,28 @@
+name: main
+on:
+  workflow_dispatch:
+    inputs:
+      RELEASE_TAG_NAME:
+        required: true
+        type: string
+        description: the remote branch to download
+      ACTION:
+        required: true
+        type: string
+        description: the action to perform
+
+jobs:
+  download:
+    if: ${{ github.event.inputs.ACTION == 'release'}}
+    uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/workflows/download.yml@main
+    with:
+      BRANCH_NAME_OR_RELEASE_TAG: ${{inputs.RELEASE_TAG_NAME}}
+      DIRECTORY: release
+      DOWNLOAD_COMMAND: download_and_extract_github_release
+    secrets: inherit
+  release:
+    needs: [download]
+    uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/workflows/release_konviw_mirror.yml@main
+    with:
+      RELEASE_TAG_NAME: ${{inputs.RELEASE_TAG_NAME}}
+    secrets: inherit

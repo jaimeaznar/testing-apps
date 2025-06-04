@@ -1,0 +1,41 @@
+name: update component version
+on:
+  workflow_dispatch:
+    inputs:
+      COMPONENT:
+        description: 'Component name'
+        required: true
+        type: string
+      VERSION:
+        description: 'Version number'
+        required: true
+        type: string
+      GIT_AUTHOR_EMAIL:
+        required: true
+        type: string
+      GIT_AUTHOR_NAME:
+        required: true
+        type: string
+      GIT_COMMITTER_NAME:
+        required: true
+        type: string
+      GIT_COMMITTER_EMAIL:
+        required: true
+        type: string
+      PROJECT_WORKSPACE:
+        required: true
+        type: string
+concurrency:
+  group: ${{ github.ref }}
+jobs:
+  Continuous_Integration:
+    name: update component version
+    uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/workflows/environment.repository.yml@main
+    with:
+      COMPONENT: ${{ inputs.COMPONENT }}
+      VERSION: ${{ inputs.VERSION }}
+      GIT_AUTHOR_EMAIL: ${{ inputs.GIT_AUTHOR_EMAIL }}
+      GIT_AUTHOR_NAME: ${{ inputs.GIT_AUTHOR_NAME }}
+      GIT_COMMITTER_NAME: ${{ inputs.GIT_COMMITTER_NAME }}
+      GIT_COMMITTER_EMAIL: ${{ inputs.GIT_COMMITTER_EMAIL }}
+    secrets: inherit

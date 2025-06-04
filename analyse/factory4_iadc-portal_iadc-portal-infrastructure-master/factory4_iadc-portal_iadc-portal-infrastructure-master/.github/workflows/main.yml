@@ -1,0 +1,73 @@
+name: main 
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'master'
+jobs:
+  tf_quality:
+    name: Quality
+    uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/workflows/tf_quality.yml@main
+    with:
+      ROLE_ARN: arn:aws:iam::874706906285:role/App_cicd_github
+    secrets: inherit
+  tf_plan_integration:
+    name: (integration) Tf plan
+    needs: [tf_quality]
+    uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/workflows/tf_plan.yml@main
+    with:
+      APP_NODE_VERSION: 0.14.7-v0.28.7
+      ADDRESS: ${{vars.CONTAINER_PRIVATE_REGISTRY}}
+      ROLE_ARN: arn:aws:iam::874706906285:role/App_cicd_github
+      TF_VAR_env: integration
+      ENV_REPO: factory4_iadc-portal_iadc-portal-environments.git
+    secrets: inherit
+  tf_change_integration:
+    name: (integration) Tf change indicator
+    needs: [tf_plan_integration]
+    uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/workflows/docs-portal_tf_change_indicator.yml@project/foundation
+    with:
+      TF_VAR_env: integration
+    secrets: inherit
+  tf_apply_integration:
+    needs: [tf_change_integration]
+    name: (integration) TF apply
+    uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/workflows/tf_apply.yml@main
+    with:
+      APP_NODE_VERSION: 0.14.7-v0.28.7
+      ADDRESS: ${{vars.CONTAINER_PRIVATE_REGISTRY}}
+      ROLE_ARN: arn:aws:iam::874706906285:role/App_cicd_github
+      TF_VAR_env: integration
+      TF_VAR_env_manual: integration_manual
+      ENV_REPO: factory4_iadc-portal_iadc-portal-environments.git
+    secrets: inherit
+  tf_plan_production:
+    name: (Production) Tf plan
+    needs: [tf_quality]
+    uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/workflows/tf_plan.yml@main
+    with:
+      APP_NODE_VERSION: 0.14.7-v0.28.7
+      ADDRESS: ${{vars.CONTAINER_PRIVATE_REGISTRY}}
+      ROLE_ARN: arn:aws:iam::848620023204:role/App_cicd_github
+      TF_VAR_env: production
+      ENV_REPO: factory4_iadc-portal_iadc-portal-environments.git
+    secrets: inherit
+  tf_change_production:
+    name: (Production)  Tf change indicator
+    needs: [tf_plan_production]
+    uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/workflows/docs-portal_tf_change_indicator.yml@project/foundation
+    with:
+      TF_VAR_env: integration
+    secrets: inherit
+  tf_apply_production:
+    needs: [tf_change_production]
+    name: (Production)  TF apply
+    uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/workflows/tf_apply.yml@main
+    with:
+      APP_NODE_VERSION: 0.14.7-v0.28.7
+      ADDRESS: ${{vars.CONTAINER_PRIVATE_REGISTRY}}
+      ROLE_ARN: arn:aws:iam::848620023204:role/App_cicd_github
+      TF_VAR_env: production
+      TF_VAR_env_manual: production_manual
+      ENV_REPO: factory4_iadc-portal_iadc-portal-environments.git
+    secrets: inherit

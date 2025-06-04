@@ -1,0 +1,87 @@
+name: Deployment
+run-name: Deployment - ${{inputs.component_name}} - ${{ inputs.ENV }}
+on:
+  workflow_dispatch:
+    inputs:
+      ENV:
+        required: true
+        type: string
+        description: the environment
+      component_name:
+        required: true
+        type: string
+      ecr_image_name:
+        required: false
+        type: string
+      component_image:
+        required: false
+        type: string
+      ecs_service:
+        required: false
+        type: string
+
+jobs:
+  Deploy :
+    environment: ${{ inputs.ENV }}
+    runs-on: ['atmos-aws-arc-runner-set']
+    container:
+      image: ${{vars.CONTAINER_PRIVATE_REGISTRY}}/foundation/cicd-docker:v20.10.14
+      credentials:
+        username: ${{secrets.CONTAINER_PRIVATE_REGISTRY_USERNAME}}
+        password: ${{secrets.CONTAINER_PRIVATE_REGISTRY_TOKEN}}
+      env:
+        ##### DO NOT CHANGE. These are required organization wide secrets necessary for shared runners #####
+        AWS_WEB_IDENTITY_TOKEN_FILE: ${{ secrets.SHARED_GHRUNNER_AWS_WEB_IDENTITY_TOKEN_FILE }}
+        AWS_ROLE_ARN: ${{ secrets.SHARED_GHRUNNER_AWS_ROLE_ARN }}
+        ####################################################################################################
+        PLAN: 'create.plan'
+        DESTROYPLAN: 'destroy.plan'
+
+      ###### DO NOT CHANGE. This is a necessary mount for containers to access the web identity token file. #############
+      volumes:
+        - /var/run/secrets/eks.amazonaws.com/serviceaccount/token:/var/run/secrets/eks.amazonaws.com/serviceaccount/token
+      ###################################################################################################################
+    steps:
+        - name: assume_role
+          uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/actions/aws-assume-role@v1.4
+          with:
+            role_arn: arn:aws:iam::${{ vars.ACCOUNT_ID }}:role/App_cicd_github
+            vtm-token: ${{ secrets.TVM_TOKEN }}
+            external_identity: ${{ secrets.TVM_ENTITYID }}
+            ssl_aws_certificate: ${{ secrets.SSL_AWS_CERTIFICATE }}
+        - name: Get Token
+          id: get_workflow_token
+          uses: peter-murray/workflow-application-token-action@v2
+          with:
+            application_id: 286113
+            application_private_key: ${{ secrets.SANOFI_GITHUB_BOT_PRIVATE_KEY }}
+        - name: docker pull tag and push to ECR
+          uses: Sanofi-GitHub/fof-digital-foundation-release-strategy/.github/actions/ecr-tag-and-push@v2
+          with:
+            aws_secret_access_key: $AWS_SECRET_ACCESS_KEY
+            aws_access_key_id: $AWS_ACCESS_KEY_ID
+            aws_expiration: $AWS_EXPIRATION
+            aws_session_token: $AWS_SESSION_TOKEN
+            aws_region: $AWS_REGION
+            personal_access_token: ${{ steps.get_workflow_token.outputs.token }}
+            project: iadc-portal
+            srm_env: ${{ vars.SRM_ENV }}
+            component_name: ${{ inputs.component_name }}
+            env: ${{ inputs.ENV }}
+            env_repo:  factory4_iadc-portal_iadc-portal-environments
+            docker_container_registery_token: ${{secrets.CONTAINER_PRIVATE_REGISTRY_TOKEN}}
+            docker_container_registery_username: ${{secrets.CONTAINER_PRIVATE_REGISTRY_USERNAME}}
+            artifactory_registery_docker_host: ${{ vars.CONTAINER_PRIVATE_REGISTRY }}
+            component_image: ${{ inputs.component_image }}
+            ecs_service: ${{ inputs.ecs_service }}
+            ecs_cluster: iadc-portal-${{ inputs.ENV }}
+
+        - name : create success summary
+          run : |
+            echo 'Component **${{ inputs.component_name }}** depolyed to **${{ inputs.ENV }}**  with success :rocket: :tada:' >> $GITHUB_STEP_SUMMARY
+          if: success()
+
+        - name : create failure summary
+          run : |
+            echo 'Failed to deploy  component **${{ inputs.component_name }}** to **${{ inputs.ENV }}** :fearful: :warning:' >> $GITHUB_STEP_SUMMARY
+          if: failure()
