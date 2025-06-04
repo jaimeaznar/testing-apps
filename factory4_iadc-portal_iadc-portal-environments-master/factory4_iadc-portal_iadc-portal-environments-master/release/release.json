@@ -1,0 +1,9 @@
+{
+  "$srm-schema": "1.0",
+  "version": "5.23",
+  "rc": 1,
+  "components": [
+    "./components/konviw.json",
+    "./components/portal.json"
+  ]
+}

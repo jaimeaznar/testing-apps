@@ -1,0 +1,8 @@
+# Variable values that apply to all modules in production environment (when TF_VAR_env = "production")
+# See modules/**/variables.tf for documentation
+
+vpc: vpc-0714d78dbd5bf63de
+subnets:
+  - subnet-04e2da2c4d7d135f0
+  - subnet-0cf5fc0049f6f74b3
+sg_webproxy: sg-0bb541fc337c81a84

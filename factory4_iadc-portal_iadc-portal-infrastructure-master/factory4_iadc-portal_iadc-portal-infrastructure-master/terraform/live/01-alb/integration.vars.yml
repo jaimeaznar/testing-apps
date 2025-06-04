@@ -1,0 +1,4 @@
+# Variable values that apply to this module in integration environment (when TF_VAR_env = "integration")
+# See modules/this-module/variables.tf for documentation
+
+alb_ssl_cert: arn:aws:acm:eu-west-1:874706906285:certificate/5917355d-32df-4ed3-b542-d15118fd3c47

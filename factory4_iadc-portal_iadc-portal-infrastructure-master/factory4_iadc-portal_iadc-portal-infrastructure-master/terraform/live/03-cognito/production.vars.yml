@@ -1,0 +1,15 @@
+# Variable values that apply to this module in dev environment (when TF_VAR_env = "dev")
+# See modules/this-module/variables.tf for documentation
+
+APP_URL: https://docs.sanofi.com
+APP_URL_OLD: https://iadc-docs.sanofi.com
+cognito_auth_role: arn:aws:iam::848620023204:role/App_basic_lambda_execution
+admin_group: iadc_portal_super-admin_prod
+lambda_role_name: arn:aws:iam::848620023204:role/App_basic_lambda_execution
+identity_pool_name: iadc_portal_production_identity_pool
+lambda_payload_path: package_production.zip
+cognito_domain: iadc-portal-production
+cognito_pool: iadc-portal-production-pool
+cognito_client: iadc-portal-production-user-pool-client
+cognito_client_m2m: iadc-portal-production-user-pool-client-m2m
+cognito_saml_metadata_path: saml_metadata/production.xml

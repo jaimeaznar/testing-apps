@@ -1,0 +1,9 @@
+# Variable values that apply to this module for all environments
+# See modules/this-module/variables.tf for documentation
+
+cpv_port: 3000
+portal_port: 80
+cognito_provider_name: sanofi-sso
+instana_endpoint_url: https://serverless-green-saas.instana.io
+instana_metrics_transmission_delay: 60000 #1 min
+instana_tracing_transmission_delay: 60000 #1 min

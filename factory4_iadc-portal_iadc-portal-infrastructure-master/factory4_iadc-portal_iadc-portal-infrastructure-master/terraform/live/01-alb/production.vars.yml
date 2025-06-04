@@ -1,0 +1,4 @@
+# Variable values that apply to this module in production environment (when TF_VAR_env = "production")
+# See modules/this-module/variables.tf for documentation
+
+alb_ssl_cert: arn:aws:acm:eu-west-1:848620023204:certificate/19bdd569-2a04-4c75-8b86-a664272980ce

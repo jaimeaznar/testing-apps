@@ -1,0 +1,7 @@
+# Variable values that apply to this module in all environments
+# See modules/this-module/variables.tf for documentation
+
+cpv_port: 3000
+portal_port: 80
+iadc_portal_target_group: iadc-portal-target-group
+confluence_public_viewer_target_group: cpv-target-group

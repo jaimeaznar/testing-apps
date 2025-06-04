@@ -1,0 +1,8 @@
+# Variable values that apply to all modules in integration environment (when TF_VAR_env = "integration")
+# See modules/**/variables.tf for documentation
+
+vpc: vpc-09d3b99ca1e423d3b
+subnets:
+  - subnet-025fc4108ae24dfea
+  - subnet-006c0566c489c6d56
+sg_webproxy: sg-004015525d93450f2

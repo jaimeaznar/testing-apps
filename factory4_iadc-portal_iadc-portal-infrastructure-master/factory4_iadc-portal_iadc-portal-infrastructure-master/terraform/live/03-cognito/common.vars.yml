@@ -1,0 +1,9 @@
+# Variable values that apply to this module in all environments
+# See modules/this-module/variables.tf for documentation
+
+lambda_handler_ad_trigger: lambda/cognito_ad_trigger.lambda_handler
+lambda_handler_pre_auth_trigger: lambda/cognito_pre_auth.lambda_handler
+lambda_timeout: 900
+lambda_memory_size: 1408
+lambda_function_name_cognito_trigger_ad: dpcm_cognito_trigger_ad
+lambda_function_name_cognito_pre_auth: dpcm_cognito_pre_auth

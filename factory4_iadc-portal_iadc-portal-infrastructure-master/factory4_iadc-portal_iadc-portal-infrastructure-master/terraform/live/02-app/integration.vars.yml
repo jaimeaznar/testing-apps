@@ -1,0 +1,41 @@
+# Variable values that apply to this module in integration environment (when TF_VAR_env = "integration")
+# See modules/this-module/variables.tf for documentation
+
+VERSION_SRM_ENV: master
+VERSION_ENV: integration
+
+ecs_task_execution_role_name: arn:aws:iam::874706906285:role/App_ecsTaskExecutionRole
+viewer_image: 874706906285.dkr.ecr.eu-west-1.amazonaws.com/iadc-portal-integration-konviw:latest
+viewer_node_env: production
+viewer_log_level: trace
+viewer_confluence_base_url: https://sanofi.atlassian.net
+viewer_confluence_api_username: centraljira@sanofi.com
+viewer_system_jira_base_url: https://sanofi.atlassian.net
+viewer_system_jira_api_username: centraljira@sanofi.com
+viewer_mce_jira_base_url: https://snfimce.atlassian.net
+viewer_mce_jira_api_username: centraljira@sanofi.com
+viewer_matomo_base_url: https://iadc-matomo-dev.sanofi.com/
+viewer_google_analytics: GTM-TV3DK4K
+viewer_konviw_private_page: konviw-private
+viewer_jira_reader_api_username: PS120398@sanofi.com
+viewer_confluence_emoji_collection: be9e333b-6799-49ef-a7c7-8f6bbaf413d1
+
+# cache related settings
+viewer_page_cache_ttl: 60
+viewer_page_cache_max: 100
+
+portal_image: 874706906285.dkr.ecr.eu-west-1.amazonaws.com/iadc-portal-integration-portal:latest
+portal_node_env: development
+portal_log_level: trace
+portal_iadc_portal_base_url: https://docs-dev.sanofi.com
+portal_confluence_reader_base_url: https://docs-dev.sanofi.com/cpv/wiki
+portal_confluence_reader_base_api: https://docs-dev.sanofi.com/cpv/api
+portal_whispr_base_url: https://whispr-uat.sanofi.com/graphql
+portal_whispr_base_ws: wss://whispr-uat.sanofi.com/graphql
+portal_google_analytics_id: GTM-K87S6B4
+portal_self_service_structure_page_id: '64157879026'
+
+cognito_app_domain: iadc-portal-integration.auth.eu-west-1.amazoncognito.com
+
+# enable/disable feature
+feature_jira_issue_enabled: enable
