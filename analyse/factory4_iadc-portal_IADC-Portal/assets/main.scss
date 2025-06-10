@@ -1,0 +1,9 @@
+.v-application {
+  font-family: sans-serif !important;
+}
+
+.v-image, img {
+  .theme--dark & {
+    background-color: white; // For images with transparent backgrounds
+  }
+}

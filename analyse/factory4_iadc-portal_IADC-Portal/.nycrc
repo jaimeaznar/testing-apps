@@ -1,0 +1,18 @@
+{
+    "all": true,
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "**/*.spec.ts"
+    ],
+    "extension": [
+        ".ts",
+        ".vue"
+    ],
+    "report-dir": "coverage/cypress",
+    "temp-dir": "coverage/cypress-tmp",
+    "reporter": [
+        "lcov"
+    ]
+}

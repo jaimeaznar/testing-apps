@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="177" failures="0" errors="0" time="51.101">
+  <testsuite name="Tests stringToArray" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:21" time="20.879" tests="13">
+    <testcase classname="Tests stringToArray should return an array when input is an array" name="Tests stringToArray should return an array when input is an array" time="0.007">
+    </testcase>
+    <testcase classname="Tests stringToArray should return an array when input is a single value" name="Tests stringToArray should return an array when input is a single value" time="0.005">
+    </testcase>
+    <testcase classname="Tests stringToArray should return an empty array when input is empty" name="Tests stringToArray should return an empty array when input is empty" time="0.004">
+    </testcase>
+    <testcase classname="Tests checkCommonAccess should return true if at least one common group" name="Tests checkCommonAccess should return true if at least one common group" time="0.002">
+    </testcase>
+    <testcase classname="Tests checkCommonAccess should return false if empty userRoles" name="Tests checkCommonAccess should return false if empty userRoles" time="0.005">
+    </testcase>
+    <testcase classname="Tests checkCommonAccess should return false if there is no common group" name="Tests checkCommonAccess should return false if there is no common group" time="0.002">
+    </testcase>
+    <testcase classname="Tests checkUserProfile should returns false if user profile doesn&apos;t have proper access" name="Tests checkUserProfile should returns false if user profile doesn&apos;t have proper access" time="0.001">
+    </testcase>
+    <testcase classname="Tests checkUserProfile should return true if user profile has proper access" name="Tests checkUserProfile should return true if user profile has proper access" time="0">
+    </testcase>
+    <testcase classname="Tests handlePostLoginRedirection should redirect if there is a cachedRoute in localstorage" name="Tests handlePostLoginRedirection should redirect if there is a cachedRoute in localstorage" time="0.012">
+    </testcase>
+    <testcase classname="Tests handlePostLoginRedirection should not redirect if the cachedRoute in localstorage is the same as the current route" name="Tests handlePostLoginRedirection should not redirect if the cachedRoute in localstorage is the same as the current route" time="0.013">
+    </testcase>
+    <testcase classname="Tests handlePostLoginRedirection should not redirect if there is not any cachedRoute in localstorage" name="Tests handlePostLoginRedirection should not redirect if there is not any cachedRoute in localstorage" time="0.003">
+    </testcase>
+    <testcase classname="Tests checkAccess should not return an error if the user has proper ad groups" name="Tests checkAccess should not return an error if the user has proper ad groups" time="0.003">
+    </testcase>
+    <testcase classname="Tests checkAccess should return an error if the user does not have proper ad groups" name="Tests checkAccess should return an error if the user does not have proper ad groups" time="0.005">
+    </testcase>
+  </testsuite>
+  <testsuite name="util/self-service.ts" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:21" time="22.177" tests="22">
+    <testcase classname="util/self-service.ts getTrElementsByContentKey should be defined" name="util/self-service.ts getTrElementsByContentKey should be defined" time="0.002">
+    </testcase>
+    <testcase classname="util/self-service.ts getTrElementsByContentKey should retrieve TR elements from Table" name="util/self-service.ts getTrElementsByContentKey should retrieve TR elements from Table" time="0.182">
+    </testcase>
+    <testcase classname="util/self-service.ts excludeUnnecessaryRowsFromTableStructure should be defined" name="util/self-service.ts excludeUnnecessaryRowsFromTableStructure should be defined" time="0.001">
+    </testcase>
+    <testcase classname="util/self-service.ts excludeUnnecessaryRowsFromTableStructure should exclude first 5 rows" name="util/self-service.ts excludeUnnecessaryRowsFromTableStructure should exclude first 5 rows" time="0.074">
+    </testcase>
+    <testcase classname="util/self-service.ts mapHTMLElementToInnerText should be defined" name="util/self-service.ts mapHTMLElementToInnerText should be defined" time="0.001">
+    </testcase>
+    <testcase classname="util/self-service.ts mapHTMLElementToInnerText should trim value" name="util/self-service.ts mapHTMLElementToInnerText should trim value" time="0.038">
+    </testcase>
+    <testcase classname="util/self-service.ts covertStringToBoolean should be defined" name="util/self-service.ts covertStringToBoolean should be defined" time="0.001">
+    </testcase>
+    <testcase classname="util/self-service.ts covertStringToBoolean should retrieve true" name="util/self-service.ts covertStringToBoolean should retrieve true" time="0.001">
+    </testcase>
+    <testcase classname="util/self-service.ts covertStringToBoolean should retrieve false" name="util/self-service.ts covertStringToBoolean should retrieve false" time="0.001">
+    </testcase>
+    <testcase classname="util/self-service.ts createConditionalElementType should be defined" name="util/self-service.ts createConditionalElementType should be defined" time="0.002">
+    </testcase>
+    <testcase classname="util/self-service.ts createConditionalElementType should retrieve true value based on input" name="util/self-service.ts createConditionalElementType should retrieve true value based on input" time="0.011">
+    </testcase>
+    <testcase classname="util/self-service.ts createConditionalElementType should retrieve false value based on input" name="util/self-service.ts createConditionalElementType should retrieve false value based on input" time="0.001">
+    </testcase>
+    <testcase classname="util/self-service.ts convertStringToRestrictedField should be defined" name="util/self-service.ts convertStringToRestrictedField should be defined" time="0.002">
+    </testcase>
+    <testcase classname="util/self-service.ts convertStringToRestrictedField should retrieve undefined based on input" name="util/self-service.ts convertStringToRestrictedField should retrieve undefined based on input" time="0">
+    </testcase>
+    <testcase classname="util/self-service.ts convertStringToRestrictedField should retrieve value based on default value" name="util/self-service.ts convertStringToRestrictedField should retrieve value based on default value" time="0.005">
+    </testcase>
+    <testcase classname="util/self-service.ts convertTrHTMLElementToObjectStructureMenuItems should be defined" name="util/self-service.ts convertTrHTMLElementToObjectStructureMenuItems should be defined" time="0.001">
+    </testcase>
+    <testcase classname="util/self-service.ts groupMenuItemsStructure should be defined" name="util/self-service.ts groupMenuItemsStructure should be defined" time="0">
+    </testcase>
+    <testcase classname="util/self-service.ts groupMenuItemsStructure should retrieve final structure" name="util/self-service.ts groupMenuItemsStructure should retrieve final structure" time="0.002">
+    </testcase>
+    <testcase classname="util/self-service.ts extractPortalsBasedOnEnvironment should be defined" name="util/self-service.ts extractPortalsBasedOnEnvironment should be defined" time="0.002">
+    </testcase>
+    <testcase classname="util/self-service.ts extractPortalsBasedOnEnvironment should removed duplicated portals ids for dev env" name="util/self-service.ts extractPortalsBasedOnEnvironment should removed duplicated portals ids for dev env" time="0.001">
+    </testcase>
+    <testcase classname="util/self-service.ts extractPortalsBasedOnEnvironment should retrieve portals ids for prod env" name="util/self-service.ts extractPortalsBasedOnEnvironment should retrieve portals ids for prod env" time="0.002">
+    </testcase>
+    <testcase classname="util/self-service.ts fetchAssetsFromConfluence should return base64" name="util/self-service.ts fetchAssetsFromConfluence should return base64" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="ConfluencePage.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:21" time="23.564" tests="9">
+    <testcase classname="ConfluencePage.vue should be a vue instance" name="ConfluencePage.vue should be a vue instance" time="0.201">
+    </testcase>
+    <testcase classname="ConfluencePage.vue should init data" name="ConfluencePage.vue should init data" time="0.099">
+    </testcase>
+    <testcase classname="ConfluencePage.vue should return an url" name="ConfluencePage.vue should return an url" time="0.104">
+    </testcase>
+    <testcase classname="ConfluencePage.vue should load an iframe" name="ConfluencePage.vue should load an iframe" time="0.073">
+    </testcase>
+    <testcase classname="ConfluencePage.vue should not pass incorrect parameters" name="ConfluencePage.vue should not pass incorrect parameters" time="0.058">
+    </testcase>
+    <testcase classname="ConfluencePage.vue URL update after cicking a link updates the URL when at the root" name="ConfluencePage.vue URL update after cicking a link updates the URL when at the root" time="0.056">
+    </testcase>
+    <testcase classname="ConfluencePage.vue URL update after cicking a link does not update the URL at the root if it is already the current page" name="ConfluencePage.vue URL update after cicking a link does not update the URL at the root if it is already the current page" time="0.065">
+    </testcase>
+    <testcase classname="ConfluencePage.vue URL update after cicking a link updates the URL when there is no current group" name="ConfluencePage.vue URL update after cicking a link updates the URL when there is no current group" time="0.066">
+    </testcase>
+    <testcase classname="ConfluencePage.vue URL update after cicking a link updates the URL when there is an existing group" name="ConfluencePage.vue URL update after cicking a link updates the URL when there is an existing group" time="0.018">
+    </testcase>
+  </testsuite>
+  <testsuite name="Categories.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:21" time="25.175" tests="5">
+    <testcase classname="Categories.vue should be a vue instance" name="Categories.vue should be a vue instance" time="1.257">
+    </testcase>
+    <testcase classname="Categories.vue should return total categories" name="Categories.vue should return total categories" time="0.447">
+    </testcase>
+    <testcase classname="Categories.vue Categories.vue loads the data in filters load global functions in select globalFunction__field" name="Categories.vue Categories.vue loads the data in filters load global functions in select globalFunction__field" time="0.441">
+    </testcase>
+    <testcase classname="Categories.vue Categories.vue loads the data in filters load units in select unit__field" name="Categories.vue Categories.vue loads the data in filters load units in select unit__field" time="0.438">
+    </testcase>
+    <testcase classname="Categories.vue Categories.vue loads the data in filters load categories in select category__field" name="Categories.vue Categories.vue loads the data in filters load categories in select category__field" time="0.292">
+    </testcase>
+  </testsuite>
+  <testsuite name="IssueDetails.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:21" time="25.545" tests="12">
+    <testcase classname="IssueDetails.vue should be a vue instance" name="IssueDetails.vue should be a vue instance" time="0.544">
+    </testcase>
+    <testcase classname="IssueDetails.vue extractTextFromJsonField should return a string if the input is a string" name="IssueDetails.vue extractTextFromJsonField should return a string if the input is a string" time="0.157">
+    </testcase>
+    <testcase classname="IssueDetails.vue extractTextFromJsonField should return a string if the input is a number" name="IssueDetails.vue extractTextFromJsonField should return a string if the input is a number" time="0.133">
+    </testcase>
+    <testcase classname="IssueDetails.vue extractTextFromJsonField should return an empty string if the input is null or undefined" name="IssueDetails.vue extractTextFromJsonField should return an empty string if the input is null or undefined" time="0.208">
+    </testcase>
+    <testcase classname="IssueDetails.vue extractTextFromJsonField should return the name if it exists" name="IssueDetails.vue extractTextFromJsonField should return the name if it exists" time="0.185">
+    </testcase>
+    <testcase classname="IssueDetails.vue extractTextFromJsonField should return the displayName if it exists" name="IssueDetails.vue extractTextFromJsonField should return the displayName if it exists" time="0.125">
+    </testcase>
+    <testcase classname="IssueDetails.vue extractTextFromJsonField should return the inward issue and outward issue if they exist" name="IssueDetails.vue extractTextFromJsonField should return the inward issue and outward issue if they exist" time="0.109">
+    </testcase>
+    <testcase classname="IssueDetails.vue extractTextFromJsonField should return the flattened JSON if the input is an object" name="IssueDetails.vue extractTextFromJsonField should return the flattened JSON if the input is an object" time="0.087">
+    </testcase>
+    <testcase classname="IssueDetails.vue extractTextFromJsonField should return the flattened JSON if the input is an array" name="IssueDetails.vue extractTextFromJsonField should return the flattened JSON if the input is an array" time="0.111">
+    </testcase>
+    <testcase classname="IssueDetails.vue extractText should return an empty string when content is undefined" name="IssueDetails.vue extractText should return an empty string when content is undefined" time="0.104">
+    </testcase>
+    <testcase classname="IssueDetails.vue extractText should push each text item into the result array" name="IssueDetails.vue extractText should push each text item into the result array" time="0.097">
+    </testcase>
+    <testcase classname="IssueDetails.vue extractText should push each link item into the result array with a prefix of &quot;~&quot;" name="IssueDetails.vue extractText should push each link item into the result array with a prefix of &quot;~&quot;" time="0.097">
+    </testcase>
+  </testsuite>
+  <testsuite name="Index.vue from Landing Page" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:42" time="5.16" tests="6">
+    <testcase classname="Index.vue from Landing Page should be a vue instance" name="Index.vue from Landing Page should be a vue instance" time="0.24">
+    </testcase>
+    <testcase classname="Index.vue from Landing Page should return a description text" name="Index.vue from Landing Page should return a description text" time="0.105">
+    </testcase>
+    <testcase classname="Index.vue from Landing Page should return a description text with ..." name="Index.vue from Landing Page should return a description text with ..." time="0.227">
+    </testcase>
+    <testcase classname="Index.vue from Landing Page should be undefined." name="Index.vue from Landing Page should be undefined." time="0.047">
+    </testcase>
+    <testcase classname="Index.vue from Landing Page should return an order array with enabled entities and sorted by title" name="Index.vue from Landing Page should return an order array with enabled entities and sorted by title" time="0.088">
+    </testcase>
+    <testcase classname="Index.vue from Landing Page should have the correct elevation class on hover" name="Index.vue from Landing Page should have the correct elevation class on hover" time="0.136">
+    </testcase>
+  </testsuite>
+  <testsuite name="Issues.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:21" time="26.829" tests="11">
+    <testcase classname="Issues.vue should be a vue instance" name="Issues.vue should be a vue instance" time="0.605">
+    </testcase>
+    <testcase classname="Issues.vue should return issues title" name="Issues.vue should return issues title" time="0.182">
+    </testcase>
+    <testcase classname="Issues.vue should return total projects" name="Issues.vue should return total projects" time="0.15">
+    </testcase>
+    <testcase classname="Issues.vue should return an empty array for empty input" name="Issues.vue should return an empty array for empty input" time="0.186">
+    </testcase>
+    <testcase classname="Issues.vue should return unique status types" name="Issues.vue should return unique status types" time="0.136">
+    </testcase>
+    <testcase classname="Issues.vue should return a description with ..." name="Issues.vue should return a description with ..." time="0.132">
+    </testcase>
+    <testcase classname="Issues.vue should generate JQL with project key" name="Issues.vue should generate JQL with project key" time="0.2">
+    </testcase>
+    <testcase classname="Issues.vue should generate JQL with issue types" name="Issues.vue should generate JQL with issue types" time="0.128">
+    </testcase>
+    <testcase classname="Issues.vue should generate JQL with statuses" name="Issues.vue should generate JQL with statuses" time="0.054">
+    </testcase>
+    <testcase classname="Issues.vue should generate JQL with summary search" name="Issues.vue should generate JQL with summary search" time="0.072">
+    </testcase>
+    <testcase classname="Issues.vue should not generate JQL without selected project or issuekey" name="Issues.vue should not generate JQL without selected project or issuekey" time="0.164">
+    </testcase>
+  </testsuite>
+  <testsuite name="SearchDropDown.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:21" time="26.739" tests="6">
+    <testcase classname="SearchDropDown.vue should be a vue instance" name="SearchDropDown.vue should be a vue instance" time="1.84">
+    </testcase>
+    <testcase classname="SearchDropDown.vue should return an array of spaces" name="SearchDropDown.vue should return an array of spaces" time="0.304">
+    </testcase>
+    <testcase classname="SearchDropDown.vue should toggle dropdown" name="SearchDropDown.vue should toggle dropdown" time="0.464">
+    </testcase>
+    <testcase classname="SearchDropDown.vue should toggle search" name="SearchDropDown.vue should toggle search" time="0.264">
+    </testcase>
+    <testcase classname="SearchDropDown.vue should return target url" name="SearchDropDown.vue should return target url" time="0.251">
+    </testcase>
+    <testcase classname="SearchDropDown.vue should set the selected page type" name="SearchDropDown.vue should set the selected page type" time="0.389">
+    </testcase>
+  </testsuite>
+  <testsuite name="Test Iframe Data Store" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:47" time="1.011" tests="7">
+    <testcase classname="Test Iframe Data Store should return a init state" name="Test Iframe Data Store should return a init state" time="0.003">
+    </testcase>
+    <testcase classname="Test Iframe Data Store should return 1 as version number value" name="Test Iframe Data Store should return 1 as version number value" time="0">
+    </testcase>
+    <testcase classname="Test Iframe Data Store should return a last modification" name="Test Iframe Data Store should return a last modification" time="0.001">
+    </testcase>
+    <testcase classname="Test Iframe Data Store should enable a feedback" name="Test Iframe Data Store should enable a feedback" time="0">
+    </testcase>
+    <testcase classname="Test Iframe Data Store should enable a search" name="Test Iframe Data Store should enable a search" time="0.001">
+    </testcase>
+    <testcase classname="Test Iframe Data Store should set space keys" name="Test Iframe Data Store should set space keys" time="0.001">
+    </testcase>
+    <testcase classname="Test Iframe Data Store should set space titles" name="Test Iframe Data Store should set space titles" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="DeviceComparator.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:43" time="4.927" tests="4">
+    <testcase classname="DeviceComparator.vue should be a vue instance" name="DeviceComparator.vue should be a vue instance" time="0.595">
+    </testcase>
+    <testcase classname="DeviceComparator.vue should return 3 devices" name="DeviceComparator.vue should return 3 devices" time="0.34">
+    </testcase>
+    <testcase classname="DeviceComparator.vue Load both v-select with list of devices load devices in first v-select" name="DeviceComparator.vue Load both v-select with list of devices load devices in first v-select" time="0.27">
+    </testcase>
+    <testcase classname="DeviceComparator.vue Load both v-select with list of devices load devices in second v-select" name="DeviceComparator.vue Load both v-select with list of devices load devices in second v-select" time="0.25">
+    </testcase>
+  </testsuite>
+  <testsuite name="google-analytics/structure.ts" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:47" time="1.56" tests="6">
+    <testcase classname="google-analytics/structure.ts labelsFactory should generate date collection for days" name="google-analytics/structure.ts labelsFactory should generate date collection for days" time="0.011">
+    </testcase>
+    <testcase classname="google-analytics/structure.ts labelsFactory should generate date collection for weeks" name="google-analytics/structure.ts labelsFactory should generate date collection for weeks" time="0.006">
+    </testcase>
+    <testcase classname="google-analytics/structure.ts labelsFactory should generate date collection for months" name="google-analytics/structure.ts labelsFactory should generate date collection for months" time="0.001">
+    </testcase>
+    <testcase classname="google-analytics/structure.ts chartDataWeeks should generate data collection for weeks" name="google-analytics/structure.ts chartDataWeeks should generate data collection for weeks" time="0.004">
+    </testcase>
+    <testcase classname="google-analytics/structure.ts chartDataWeeks should generate data collection for days" name="google-analytics/structure.ts chartDataWeeks should generate data collection for days" time="0.002">
+    </testcase>
+    <testcase classname="google-analytics/structure.ts chartDataWeeks should generate data collection for months" name="google-analytics/structure.ts chartDataWeeks should generate data collection for months" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="google-analytics/date.ts" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:48" time="1.17" tests="10">
+    <testcase classname="google-analytics/date.ts getDatesBetweenRange should generate date collection" name="google-analytics/date.ts getDatesBetweenRange should generate date collection" time="0.002">
+    </testcase>
+    <testcase classname="google-analytics/date.ts getDatesBetweenRange should not generate date collection" name="google-analytics/date.ts getDatesBetweenRange should not generate date collection" time="0">
+    </testcase>
+    <testcase classname="google-analytics/date.ts getWeeksBetweenRange should generate date collection" name="google-analytics/date.ts getWeeksBetweenRange should generate date collection" time="0">
+    </testcase>
+    <testcase classname="google-analytics/date.ts getWeeksBetweenRange should not generate date collection" name="google-analytics/date.ts getWeeksBetweenRange should not generate date collection" time="0">
+    </testcase>
+    <testcase classname="google-analytics/date.ts subtractDate should subtract date" name="google-analytics/date.ts subtractDate should subtract date" time="0.001">
+    </testcase>
+    <testcase classname="google-analytics/date.ts subtractDate should not subtract date" name="google-analytics/date.ts subtractDate should not subtract date" time="0.002">
+    </testcase>
+    <testcase classname="google-analytics/date.ts getMonthsBetween should generate date collection" name="google-analytics/date.ts getMonthsBetween should generate date collection" time="0.001">
+    </testcase>
+    <testcase classname="google-analytics/date.ts fillSingleNumberInDate should not update value" name="google-analytics/date.ts fillSingleNumberInDate should not update value" time="0.002">
+    </testcase>
+    <testcase classname="google-analytics/date.ts fillSingleNumberInDate should update value" name="google-analytics/date.ts fillSingleNumberInDate should update value" time="0">
+    </testcase>
+    <testcase classname="google-analytics/date.ts getDateOfWeek should generate date based on week value" name="google-analytics/date.ts getDateOfWeek should generate date based on week value" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="Certificate.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:44" time="4.835" tests="6">
+    <testcase classname="Certificate.vue should be a vue instance" name="Certificate.vue should be a vue instance" time="0.592">
+    </testcase>
+    <testcase classname="Certificate.vue should get the User Data logged in" name="Certificate.vue should get the User Data logged in" time="0.265">
+    </testcase>
+    <testcase classname="Certificate.vue should return a training certificate" name="Certificate.vue should return a training certificate" time="0.151">
+    </testcase>
+    <testcase classname="Certificate.vue should display a canvas with id #qrcode" name="Certificate.vue should display a canvas with id #qrcode" time="0.145">
+    </testcase>
+    <testcase classname="Certificate.vue should build a Url to verify a Certificate" name="Certificate.vue should build a Url to verify a Certificate" time="0.091">
+    </testcase>
+    <testcase classname="Certificate.vue should button exists" name="Certificate.vue should button exists" time="0.163">
+    </testcase>
+  </testsuite>
+  <testsuite name="CentralJiraTraining.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:46" time="3.908" tests="5">
+    <testcase classname="CentralJiraTraining.vue should be a vue instance" name="CentralJiraTraining.vue should be a vue instance" time="0.256">
+    </testcase>
+    <testcase classname="CentralJiraTraining.vue should have a component ConfluenceSlides" name="CentralJiraTraining.vue should have a component ConfluenceSlides" time="0.262">
+    </testcase>
+    <testcase classname="CentralJiraTraining.vue should have a component ConfluencePage" name="CentralJiraTraining.vue should have a component ConfluencePage" time="0.221">
+    </testcase>
+    <testcase classname="CentralJiraTraining.vue Checkbox and button behavior should button deactivated when checkbox is checked and konviw IFrame data is not loaded" name="CentralJiraTraining.vue Checkbox and button behavior should button deactivated when checkbox is checked and konviw IFrame data is not loaded" time="0.158">
+    </testcase>
+    <testcase classname="CentralJiraTraining.vue Checkbox and button behavior should button deactivated when checkbox is unchecked" name="CentralJiraTraining.vue Checkbox and button behavior should button deactivated when checkbox is unchecked" time="0.137">
+    </testcase>
+  </testsuite>
+  <testsuite name="ConfluenceSlides.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:48" time="2.227" tests="4">
+    <testcase classname="ConfluenceSlides.vue should be a vue instance" name="ConfluenceSlides.vue should be a vue instance" time="0.065">
+    </testcase>
+    <testcase classname="ConfluenceSlides.vue should init data" name="ConfluenceSlides.vue should init data" time="0.047">
+    </testcase>
+    <testcase classname="ConfluenceSlides.vue should return an url" name="ConfluenceSlides.vue should return an url" time="0.106">
+    </testcase>
+    <testcase classname="ConfluenceSlides.vue should load an iframe" name="ConfluenceSlides.vue should load an iframe" time="0.058">
+    </testcase>
+  </testsuite>
+  <testsuite name="AuthorProfile.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:48" time="2.728" tests="5">
+    <testcase classname="AuthorProfile.vue should be a vue instance" name="AuthorProfile.vue should be a vue instance" time="0.082">
+    </testcase>
+    <testcase classname="AuthorProfile.vue should init data" name="AuthorProfile.vue should init data" time="0.04">
+    </testcase>
+    <testcase classname="AuthorProfile.vue should normalize name" name="AuthorProfile.vue should normalize name" time="0.107">
+    </testcase>
+    <testcase classname="AuthorProfile.vue should display image and author name" name="AuthorProfile.vue should display image and author name" time="0.098">
+    </testcase>
+    <testcase classname="AuthorProfile.vue should display image and author name normalized" name="AuthorProfile.vue should display image and author name normalized" time="0.115">
+    </testcase>
+  </testsuite>
+  <testsuite name="Projects.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:48" time="3.116" tests="4">
+    <testcase classname="Projects.vue should be a vue instance" name="Projects.vue should be a vue instance" time="0.155">
+    </testcase>
+    <testcase classname="Projects.vue should return total categories" name="Projects.vue should return total categories" time="0.077">
+    </testcase>
+    <testcase classname="Projects.vue should return projects title" name="Projects.vue should return projects title" time="0.092">
+    </testcase>
+    <testcase classname="Projects.vue should return a description with ..." name="Projects.vue should return a description with ..." time="0.184">
+    </testcase>
+  </testsuite>
+  <testsuite name="Spaces.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:48" time="2.657" tests="4">
+    <testcase classname="Spaces.vue should be a vue instance" name="Spaces.vue should be a vue instance" time="0.174">
+    </testcase>
+    <testcase classname="Spaces.vue should return a total spaces" name="Spaces.vue should return a total spaces" time="0.105">
+    </testcase>
+    <testcase classname="Spaces.vue should return a empty array space" name="Spaces.vue should return a empty array space" time="0.17">
+    </testcase>
+    <testcase classname="Spaces.vue should return a description with ..." name="Spaces.vue should return a description with ..." time="0.084">
+    </testcase>
+  </testsuite>
+  <testsuite name="Mixin functions " errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:51" time="0.645" tests="4">
+    <testcase classname="Mixin functions  Tests global function should return a portal id from url" name="Mixin functions  Tests global function should return a portal id from url" time="0.001">
+    </testcase>
+    <testcase classname="Mixin functions  Tests global function should return a portal id from path" name="Mixin functions  Tests global function should return a portal id from path" time="0">
+    </testcase>
+    <testcase classname="Mixin functions  Tests global function should return a portal hompageId from path" name="Mixin functions  Tests global function should return a portal hompageId from path" time="0">
+    </testcase>
+    <testcase classname="Mixin functions  Tests global function should return boolean based on path url" name="Mixin functions  Tests global function should return boolean based on path url" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="AppDrawer.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:49" time="2.491" tests="2">
+    <testcase classname="AppDrawer.vue should be a vue instance" name="AppDrawer.vue should be a vue instance" time="0.14">
+    </testcase>
+    <testcase classname="AppDrawer.vue should hide page information" name="AppDrawer.vue should hide page information" time="0.112">
+    </testcase>
+  </testsuite>
+  <testsuite name="ShareButton.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:49" time="3.011" tests="4">
+    <testcase classname="ShareButton.vue should be a vue instance" name="ShareButton.vue should be a vue instance" time="0.342">
+    </testcase>
+    <testcase classname="ShareButton.vue should return a page Id" name="ShareButton.vue should return a page Id" time="0.114">
+    </testcase>
+    <testcase classname="ShareButton.vue should init data" name="ShareButton.vue should init data" time="0.084">
+    </testcase>
+    <testcase classname="ShareButton.vue should clicked called" name="ShareButton.vue should clicked called" time="0.14">
+    </testcase>
+  </testsuite>
+  <testsuite name="AppStatisticsChart.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:50" time="1.947" tests="2">
+    <testcase classname="AppStatisticsChart.vue should be a vue instance" name="AppStatisticsChart.vue should be a vue instance" time="0.13">
+    </testcase>
+    <testcase classname="AppStatisticsChart.vue should have days, weeks and months selection" name="AppStatisticsChart.vue should have days, weeks and months selection" time="0.069">
+    </testcase>
+  </testsuite>
+  <testsuite name="GoogleAnalyticsChart.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:50" time="2.238" tests="2">
+    <testcase classname="GoogleAnalyticsChart.vue should be a vue instance" name="GoogleAnalyticsChart.vue should be a vue instance" time="0.138">
+    </testcase>
+    <testcase classname="GoogleAnalyticsChart.vue should have days, weeks and months selection" name="GoogleAnalyticsChart.vue should have days, weeks and months selection" time="0.173">
+    </testcase>
+  </testsuite>
+  <testsuite name="GA4 Tracking" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:52" time="0.989" tests="3">
+    <testcase classname="GA4 Tracking should return correct user information" name="GA4 Tracking should return correct user information" time="0.011">
+    </testcase>
+    <testcase classname="GA4 Tracking should return correct route information" name="GA4 Tracking should return correct route information" time="0.01">
+    </testcase>
+    <testcase classname="GA4 Tracking should return hashed value" name="GA4 Tracking should return hashed value" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="MatomoChart.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:51" time="2.295" tests="2">
+    <testcase classname="MatomoChart.vue should be a vue instance" name="MatomoChart.vue should be a vue instance" time="0.33">
+    </testcase>
+    <testcase classname="MatomoChart.vue should have days, weeks and months selection" name="MatomoChart.vue should have days, weeks and months selection" time="0.105">
+    </testcase>
+  </testsuite>
+  <testsuite name="500 error pages" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:52" time="1.681" tests="2">
+    <testcase classname="500 error pages should be a vue instance" name="500 error pages should be a vue instance" time="0.105">
+    </testcase>
+    <testcase classname="500 error pages should get the right error 500" name="500 error pages should get the right error 500" time="0.062">
+    </testcase>
+  </testsuite>
+  <testsuite name="404 error pages" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:52" time="1.876" tests="2">
+    <testcase classname="404 error pages should be a vue instance" name="404 error pages should be a vue instance" time="0.074">
+    </testcase>
+    <testcase classname="404 error pages should get the right error 404" name="404 error pages should get the right error 404" time="0.074">
+    </testcase>
+  </testsuite>
+  <testsuite name="Default.vue Layout" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:51" time="3.014" tests="1">
+    <testcase classname="Default.vue Layout should be a vue instance" name="Default.vue Layout should be a vue instance" time="0.183">
+    </testcase>
+  </testsuite>
+  <testsuite name="AppStatistics.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:52" time="2.034" tests="1">
+    <testcase classname="AppStatistics.vue should be a vue instance" name="AppStatistics.vue should be a vue instance" time="0.444">
+    </testcase>
+  </testsuite>
+  <testsuite name="403 error pages" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:52" time="2.58" tests="2">
+    <testcase classname="403 error pages should be a vue instance" name="403 error pages should be a vue instance" time="0.196">
+    </testcase>
+    <testcase classname="403 error pages should get the right error 403" name="403 error pages should get the right error 403" time="0.06">
+    </testcase>
+  </testsuite>
+  <testsuite name="PageFooter.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:54" time="1.073" tests="3">
+    <testcase classname="PageFooter.vue should be a vue instance" name="PageFooter.vue should be a vue instance" time="0.086">
+    </testcase>
+    <testcase classname="PageFooter.vue should init data" name="PageFooter.vue should init data" time="0.097">
+    </testcase>
+    <testcase classname="PageFooter.vue should input return url" name="PageFooter.vue should input return url" time="0.121">
+    </testcase>
+  </testsuite>
+  <testsuite name="Matomo.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:53" time="1.46" tests="1">
+    <testcase classname="Matomo.vue should be a vue instance" name="Matomo.vue should be a vue instance" time="0.24">
+    </testcase>
+  </testsuite>
+  <testsuite name="LandingPage.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:53" time="2.048" tests="1">
+    <testcase classname="LandingPage.vue should be a vue instance" name="LandingPage.vue should be a vue instance" time="0.557">
+    </testcase>
+  </testsuite>
+  <testsuite name="Feedback-Dashboard.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:54" time="1.426" tests="1">
+    <testcase classname="Feedback-Dashboard.vue should be a vue instance" name="Feedback-Dashboard.vue should be a vue instance" time="0.078">
+    </testcase>
+  </testsuite>
+  <testsuite name="Index.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:54" time="1.526" tests="1">
+    <testcase classname="Index.vue should be a vue instance" name="Index.vue should be a vue instance" time="0.068">
+    </testcase>
+  </testsuite>
+  <testsuite name="Index.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:55" time="1.258" tests="1">
+    <testcase classname="Index.vue should be a vue instance" name="Index.vue should be a vue instance" time="0.033">
+    </testcase>
+  </testsuite>
+  <testsuite name="Index.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:55" time="1.04" tests="1">
+    <testcase classname="Index.vue should be a vue instance" name="Index.vue should be a vue instance" time="0.051">
+    </testcase>
+  </testsuite>
+  <testsuite name="Index.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:55" time="1.214" tests="1">
+    <testcase classname="Index.vue should be a vue instance" name="Index.vue should be a vue instance" time="0.139">
+    </testcase>
+  </testsuite>
+  <testsuite name="Index.vue" errors="0" failures="0" skipped="0" timestamp="2024-09-30T07:06:55" time="1.548" tests="1">
+    <testcase classname="Index.vue should be a vue instance" name="Index.vue should be a vue instance" time="0.108">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="Calque_1"
+   data-name="Calque 1"
+   viewBox="0 0 110 110"
+   version="1.1"
+   sodipodi:docname="SMS.svg"
+   inkscape:version="1.0.1 (c497b03c, 2020-09-10)">
+  <style
+     id="style833" />
+  <metadata
+     id="metadata27">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1653"
+     inkscape:window-height="1154"
+     id="namedview25"
+     showgrid="false"
+     inkscape:snap-page="false"
+     inkscape:zoom="6"
+     inkscape:cx="53.602041"
+     inkscape:cy="62.530612"
+     inkscape:window-x="0"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="Calque_1"
+     inkscape:document-rotation="0" />
+  <defs
+     id="defs12">
+    <style
+       id="style10">.cls-1{fill:#fff;}.cls-2{fill:#525ca3;}</style>
+  </defs>
+  <circle
+     style="fill:#bcbc1c;fill-opacity:1;stroke-width:2.68554"
+     id="path1443"
+     cx="82.159546"
+     cy="60.827236"
+     r="15.107122" />
+  <circle
+     style="fill:#525ca3;fill-opacity:1;stroke-width:2.68554"
+     id="path1443-4"
+     cx="70.757126"
+     cy="29.773748"
+     r="15.107122" />
+  <circle
+     style="fill:#bfcce9;fill-opacity:1;stroke-width:2.68554"
+     id="path1443-4-8"
+     cx="38.184124"
+     cy="29.773748"
+     r="15.107122" />
+  <circle
+     style="fill:#caae7a;fill-opacity:1;stroke-width:2.68554"
+     id="circle1515"
+     cx="27.773771"
+     cy="60.827236"
+     r="15.107122" />
+  <circle
+     style="fill:#ec6d08;fill-opacity:1;stroke-width:2.68554"
+     id="circle1517"
+     cx="54.831123"
+     cy="79.711227"
+     r="15.107122" />
+</svg>
